@@ -41,6 +41,9 @@ jobs:
         run: |
           MIXED_CPUS_CONTAINER_IMAGE=${MIXED_CPUS_CONTAINER_IMAGE} RUNTIME=${RUNTIME} make image
 
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
       - name: create K8S kind cluster
         run: |
           # kind is part of 20.04 image, see: https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md
